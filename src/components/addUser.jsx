@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styles/AddUser.css'; // Asegúrate de que aquí tengas estilos para los botones
+import './styles/addUser.css'; // Asegúrate de que aquí tengas estilos para los botones
 
 function AddUser() {
     const [username, setUsername] = useState('');
