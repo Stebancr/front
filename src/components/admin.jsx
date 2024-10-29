@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Admin({ callback }) {
-    const [username, setUsername] = useState('');
+    const [correo, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const goTo = useNavigate();
 
@@ -12,12 +12,12 @@ function Admin({ callback }) {
         const role = 'admin';
 
         try {
-            const response = await fetch('http://localhost:4000/v1/signos/admin', {
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ role, username, password }),
+                body: JSON.stringify({ role, correo, password }),
             });
 
             const data = await response.json();

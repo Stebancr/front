@@ -18,7 +18,7 @@ function AddUser() {
         event.preventDefault();
         
         try {
-            const response = await fetch('http://localhost:4000/v1/signos/addUser', {
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/addUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -7,7 +7,7 @@ function UserHome() {
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('http://localhost:4000/v1/signos/codes'); // Endpoint para obtener los códigos registrados
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/codes'); // Endpoint para obtener los códigos registrados
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
@@ -23,12 +23,12 @@ function UserHome() {
         fetchCodes();
     }, []);
 
-    
+
     const registerCode = async (event) => {
         event.preventDefault();
         // Lógica para registrar el código, puedes ajustar según tu implementación
         try {
-            const response = await fetch('http://localhost:4000/v1/signos/registerCode', {
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/registerCode', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
