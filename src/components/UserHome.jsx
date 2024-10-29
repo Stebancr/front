@@ -1,13 +1,13 @@
 import './styles/UserHome.css';
 import { useEffect, useState } from 'react';
 
-function UserHome() {
+function UserHome({user}) {
     const [codes, setCodes] = useState([]);
     const [codeInput, setCodeInput] = useState('');
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19'); // Endpoint para obtener los códigos registrados
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId='+user); // Endpoint para obtener los códigos registrados
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
@@ -33,7 +33,7 @@ function UserHome() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ codigo: codeInput, usuarioId:"6720f4d58d30103289c4ed19" }),
+                body: JSON.stringify({ codigo: codeInput, usuarioId:user }),
             });
             if (response.ok) {
                 setCodeInput(''); // Limpiar el input después de registrar

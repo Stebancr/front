@@ -9,7 +9,6 @@ function Form({ callback }) {
 
     const validateUser = async (event) => {
         event.preventDefault();
-        const role = 'user';  // Solo usuarios, no admins
 
         try {
             const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/login', {
@@ -17,14 +16,13 @@ function Form({ callback }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ role, correo, password }),
+                body: JSON.stringify({ correo, password }),
             });
 
             const data = await response.json();
-            console.log(data)
             if (response.ok) {
-                callback(role);
-                goTo('/userHome');  // Redirige solo a userHome
+                callback(data._id, data.role);
+                data.role === 'user' ? goTo('/userHome') : goTo('/adminHome');
             } else {
                 alert(data.message || 'Credenciales incorrectas');
             }

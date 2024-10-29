@@ -33,7 +33,7 @@ function App() {
         {/* Nueva ruta para agregar usuario */}
         <Route path='/addUser' element={<AddUser />}></Route> {/* Añadir la nueva ruta */}
         {/* Nueva ruta para ingresar como admin */}
-        <Route path='/admin' element={<Admin />}></Route> {/* Añadir la nueva ruta */}
+        <Route path='/admin' element={<Admin callback={handleLogin}/>}></Route> {/* Añadir la nueva ruta */}
       </Routes>
     </BrowserRouter>
   )

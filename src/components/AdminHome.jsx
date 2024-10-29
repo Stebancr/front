@@ -41,8 +41,8 @@ function AdminHome({ user }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {winners.map((winner, index) => ( winner.codigos.map((codigo)=>
-                            <tr key={index}>
+                        {winners.map((winner, index1) => ( winner.codigos.map((codigo, index2)=>
+                            <tr key={index2}>
                                 <td>{codigo.fechaRegistro}</td>
                                 <td>{winner.usuario.username}</td>
                                 <td>{winner.usuario.cedula}</td>
