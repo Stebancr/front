@@ -23,6 +23,7 @@ function UserHome() {
         fetchCodes();
     }, []);
 
+    
     const registerCode = async (event) => {
         event.preventDefault();
         // Lógica para registrar el código, puedes ajustar según tu implementación
