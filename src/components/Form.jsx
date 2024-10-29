@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Form({ callback }) {
-    const [username, setUsername] = useState('');
+    const [correo, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const goTo = useNavigate();
 
@@ -17,11 +17,11 @@ function Form({ callback }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ role, username, password }),
+                body: JSON.stringify({ role, correo, password }),
             });
 
             const data = await response.json();
-
+            console.log(data)
             if (response.ok) {
                 callback(role);
                 goTo('/userHome');  // Redirige solo a userHome
