@@ -2,7 +2,7 @@ import './styles/Form.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Form({ callback }) {
+function Admin({ callback }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const goTo = useNavigate();
@@ -56,4 +56,4 @@ function Form({ callback }) {
     );
 }
 
-export default Form;
+export default Admin;

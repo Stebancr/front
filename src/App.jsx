@@ -3,7 +3,8 @@ import Form from './components/Form';
 import UserHome from './components/UserHome';
 import AdminHome from './components/AdminHome';
 import ChangePassword from './components/ChangePassword';
-import AddUser from './components/addUser'; // Importar el nuevo componente
+import AddUser from './components/addUser';
+import Admin from './components/admin'; // Importar el nuevo componente
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import { useState } from 'react';
 
@@ -31,6 +32,8 @@ function App() {
         <Route path='/changePassword' element={<ChangePassword user={user} />}></Route>
         {/* Nueva ruta para agregar usuario */}
         <Route path='/addUser' element={<AddUser />}></Route> {/* Añadir la nueva ruta */}
+        {/* Nueva ruta para ingresar como admin */}
+        <Route path='/admin' element={<Admin />}></Route> {/* Añadir la nueva ruta */}
       </Routes>
     </BrowserRouter>
   )
