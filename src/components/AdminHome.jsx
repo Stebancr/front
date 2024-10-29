@@ -11,11 +11,11 @@ function AdminHome({ user }) {
                 const data = await response.json();
 
                 if (response. ok) {
-                    setWinners(date);
+                    setWinners(data);
                 } else {
                     console.error('Error al obtener los ganadores:', data.message);
                         
-                    setWinners(date);
+                    setWinners(data);
                 }
             } catch (error) {
                 console.error('Error al conectarse al servidor:', error);
@@ -41,16 +41,16 @@ function AdminHome({ user }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {winners.map((winner, index) => (
+                        {winners.map((winner, index) => ( winner.codigos.map((codigo)=>
                             <tr key={index}>
-                                <td>{winner.fechaRegistro}</td>
-                                <td>{winner.username}</td>
-                                <td>{winner.cedula}</td>
-                                <td>{winner.celular}</td>
-                                <td>{winner.codigo}</td>
-                                <td>{winner.premio}</td>
+                                <td>{codigo.fechaRegistro}</td>
+                                <td>{winner.usuario.username}</td>
+                                <td>{winner.usuario.cedula}</td>
+                                <td>{winner.usuario.celular}</td>
+                                <td>{codigo.codigo}</td>
+                                <td>{codigo.premio}</td>
                             </tr>
-                        ))}
+                        )))}
                     </tbody>
                 </table>
             </div>

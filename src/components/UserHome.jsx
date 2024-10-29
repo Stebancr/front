@@ -7,7 +7,7 @@ function UserHome() {
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/codes'); // Endpoint para obtener los códigos registrados
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19'); // Endpoint para obtener los códigos registrados
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
@@ -28,12 +28,12 @@ function UserHome() {
         event.preventDefault();
         // Lógica para registrar el código, puedes ajustar según tu implementación
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/registerCode', {
-                method: 'POST',
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/redeemCode', {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ code: codeInput }),
+                body: JSON.stringify({ codigo: codeInput, usuarioId:"6720f4d58d30103289c4ed19" }),
             });
             if (response.ok) {
                 setCodeInput(''); // Limpiar el input después de registrar
