@@ -12,7 +12,7 @@ function ChangePassword() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://back-alpha-two.vercel.app/v1/signos/ChangePassword', {
+            const response = await fetch('http://localhost:4000/v1/signos/ChangePassword', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
