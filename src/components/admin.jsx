@@ -21,9 +21,8 @@ function Admin({ callback }) {
             });
 
             const data = await response.json();
-
+            console.log(data)
             if (response.ok) {
-                callback(role);
                 goTo('/adminHome');
             } else {
                 alert(data.message || 'Credenciales incorrectas');
