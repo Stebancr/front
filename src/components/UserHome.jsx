@@ -58,26 +58,29 @@ function UserHome() {
                 />
                 <button type="submit">Registrar</button>
             </form>
-            <table className="styled-table">
-                <thead>
-                    <tr>
-                        <th>Fecha de Registro</th>
-                        <th>Código Usado</th>
-                        <th>Monto del Premio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {codes.map((code, index) => (
-                        <tr key={index}>
-                            <td>{code.fechaRegistro}</td>
-                            <td>{code.codigo}</td>
-                            <td>{code.premio}</td>
+            <div className="table-container">
+                <table className="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha de Registro</th>
+                            <th>Código Usado</th>
+                            <th>Monto del Premio</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {codes.map((code, index) => (
+                            <tr key={index}>
+                                <td>{code.fechaRegistro}</td>
+                                <td>{code.codigo}</td>
+                                <td>{code.premio}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
+
 
 export default UserHome;

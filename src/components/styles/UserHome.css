@@ -1,9 +1,8 @@
 .container {
-    height: auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px; 
+    padding: 20px;
 }
 
 h1 {
@@ -13,30 +12,42 @@ h1 {
 
 .styled-table {
     width: 100%;
-    border-collapse: collapse; /* Eliminar espacio entre los bordes */
-    margin: 20px 0;
+    border-collapse: collapse;
     font-size: 18px;
     text-align: left;
-    border: 1px solid #ddd; /* Borde externo de la tabla */
+    border: 1px solid #ddd;
+}
+
+.styled-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #0ea3e9;
+    color: white;
+    padding: 12px 15px;
+    border: 1px solid #0ea3e9;
+    z-index: 1;
 }
 
 .styled-table th, 
 .styled-table td {
     padding: 12px 15px;
-    border: 1px solid #ddd; /* Bordes de las celdas */
+    border: 1px solid #ddd;
 }
 
-.styled-table th {
-    background-color: #0ea3e9; /* Color de fondo para el encabezado */
-    color: white; /* Color del texto en el encabezado */
+.styled-table tbody tr:nth-child(even) {
+    background-color: #1156e068;
 }
 
-.styled-table tr:nth-child(even) {
-    background-color: #f2f2f2; /* Color de filas pares */
+.styled-table tbody tr:hover {
+    background-color: #ddd;
 }
 
-.styled-table tr:hover {
-    background-color: #ddd; /* Color de fondo al pasar el ratón */
+/* Contenedor desplazable para la tabla */
+.table-container {
+    max-height: 300px; /* Ajusta la altura según necesites */
+    overflow-y: auto;
+    width: 100%;
+    border: 1px solid #ddd;
 }
 
 /* Estilos adicionales para el formulario */
@@ -48,7 +59,7 @@ input[type="text"] {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    margin-right: 10px; /* Espaciado entre input y botón */
+    margin-right: 10px;
 }
 
 button {
@@ -58,9 +69,9 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Transición suave para el fondo */
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: darkblue; /* Cambia el color al pasar el ratón */
+    background-color: darkblue;
 }
