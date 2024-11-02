@@ -41,8 +41,9 @@ function AddUser() {
     };
 
     const handleBack = () => {
-        goTo(-1);
+        goTo('/'); // Cambia '/' por la ruta que quieras para la página de inicio
     };
+    
 
     return (
         <div className='container2'>

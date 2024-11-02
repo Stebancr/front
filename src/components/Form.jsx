@@ -55,7 +55,7 @@ function Form({ callback }) {
                 <div className="form-container">
                     <form onSubmit={validateUser}>
                         <h1 id="txtBienvenida">Bienvenido, regístrate para reclamar tus premios</h1>
-                        <h4 className="txt">Nombre de Usuario</h4>
+                        <h4 className="txt">correo electronico</h4>
                         <input type="text" className="entry" onChange={(e) => setUsername(e.target.value)} required /><br />
                         <h4 className="txt">Contraseña</h4>
                         <input type="password" className="entry" onChange={(e) => setPassword(e.target.value)} required /><br />

@@ -8,7 +8,7 @@
 }
 
 .container {
-    justify-content: center;
+    
     display: flex;
     justify-content: center;
     background-color: #e9b60e;
@@ -18,7 +18,7 @@
     align-items: center;
     padding: 20px;
     border-radius: 10px; /* Esquinas redondeadas */
-    box-shadow: 0 0 15px rgba(83, 81, 81, 0.945); /* Sombra para profundidad */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
     
 }
 
@@ -62,7 +62,7 @@ h1 {
 
 /* Contenedor desplazable para la tabla */
 .table-container {
-    max-height: 400px; /* Ajusta la altura según necesites */
+    max-height: 300px; /* Ajusta la altura según necesites */
     overflow-y: auto;
     width: 100%;
     border: 1px solid #ddd;
@@ -71,7 +71,6 @@ h1 {
 /* Estilos adicionales para el formulario */
 form {
     margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(83, 81, 81, 0.945); /* Sombra para profundidad */
 }
 
 input[type="text"] {
@@ -103,5 +102,34 @@ button:hover {
     height: 100%;
     object-fit: cover; /* Asegúrate de que cubra todo el espacio */
     z-index: -1; /* Coloca la imagen de fondo detrás de otros elementos */
+}
+
+.promo-image {
+    width: 100%; /* Ocupa todo el ancho del cuadro */
+    height: auto; /* Mantiene la proporción */
+}
+
+.back-button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.back-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #c42115; /* Cambia esto al color que prefieras */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-link:hover {
+    background-color: #0056b3; /* Cambia esto al color que prefieras para el hover */
 }
 
