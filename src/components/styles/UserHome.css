@@ -1,8 +1,25 @@
+.container2 {
+    
+    display: flex; /* Usa flexbox para alinear elementos */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    position: relative; /* Necesario para el fondo */
+}
+
 .container {
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    background-color: #e9b60e;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 0 15px rgba(83, 81, 81, 0.945); /* Sombra para profundidad */
+    
 }
 
 h1 {
@@ -21,21 +38,22 @@ h1 {
 .styled-table thead th {
     position: sticky;
     top: 0;
-    background-color: #0ea3e9;
+    background-color: #e9b60e;
     color: white;
     padding: 12px 15px;
-    border: 1px solid #0ea3e9;
+    border: 1px solid #e9b60e;
     z-index: 1;
 }
 
-.styled-table th, 
+.styled-table th,
 .styled-table td {
+    background-color: #e9b60e;
     padding: 12px 15px;
     border: 1px solid #ddd;
 }
 
 .styled-table tbody tr:nth-child(even) {
-    background-color: #1156e068;
+    background-color: #e9b60e;
 }
 
 .styled-table tbody tr:hover {
@@ -44,7 +62,7 @@ h1 {
 
 /* Contenedor desplazable para la tabla */
 .table-container {
-    max-height: 300px; /* Ajusta la altura según necesites */
+    max-height: 400px; /* Ajusta la altura según necesites */
     overflow-y: auto;
     width: 100%;
     border: 1px solid #ddd;
@@ -53,6 +71,7 @@ h1 {
 /* Estilos adicionales para el formulario */
 form {
     margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(83, 81, 81, 0.945); /* Sombra para profundidad */
 }
 
 input[type="text"] {
@@ -64,7 +83,7 @@ input[type="text"] {
 
 button {
     padding: 10px 15px;
-    background-color: blue;
+    background-color: #c42115;
     color: white;
     border: none;
     border-radius: 5px;
@@ -75,3 +94,14 @@ button {
 button:hover {
     background-color: darkblue;
 }
+
+.fondo {
+    position: absolute; /* Permite que ocupe toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegúrate de que cubra todo el espacio */
+    z-index: -1; /* Coloca la imagen de fondo detrás de otros elementos */
+}
+

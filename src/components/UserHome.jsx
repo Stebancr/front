@@ -1,5 +1,8 @@
 import './styles/UserHome.css';
 import { useEffect, useState } from 'react';
+import fondo from "./imagenes/fondo.jpg"
+import logo from "./imagenes/logo.png"
+import promocion from "./imagenes/promocion.jpg"
 
 function UserHome() {
     const [codes, setCodes] = useState([]);
@@ -7,7 +10,7 @@ function UserHome() {
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19'); // Endpoint para obtener los códigos registrados
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19');
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
@@ -23,17 +26,15 @@ function UserHome() {
         fetchCodes();
     }, []);
 
-
     const registerCode = async (event) => {
         event.preventDefault();
-        // Lógica para registrar el código, puedes ajustar según tu implementación
         try {
             const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/redeemCode', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ codigo: codeInput, usuarioId:"6720f4d58d30103289c4ed19" }),
+                body: JSON.stringify({ codigo: codeInput, usuarioId: "6720f4d58d30103289c4ed19" }),
             });
             if (response.ok) {
                 setCodeInput(''); // Limpiar el input después de registrar
@@ -48,40 +49,44 @@ function UserHome() {
     };
 
     return (
-        <div className="container">
-            <h1>Registrar Código</h1>
-            <form onSubmit={registerCode}>
-                <input
-                    type="text"
-                    placeholder="Código de 4 dígitos"
-                    value={codeInput}
-                    onChange={(e) => setCodeInput(e.target.value)}
-                />
-                <button type="submit">Registrar</button>
-            </form>
-            <div className="table-container">
-                <table className="styled-table">
-                    <thead>
-                        <tr>
-                            <th>Fecha de Registro</th>
-                            <th>Código Usado</th>
-                            <th>Monto del Premio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {codes.map((code, index) => (
-                            <tr key={index}>
-                                <td>{code.fechaRegistro}</td>
-                                <td>{code.codigo}</td>
-                                <td>{code.premio}</td>
+        <div className='container2'>
+            <img src={fondo} alt='fondo' className="fondo" />
+
+            <div className="container">
+            
+                <h1>Registrar Código</h1>
+                <form onSubmit={registerCode}>
+                    <input
+                        type="text"
+                        placeholder="Código de 4 dígitos"
+                        value={codeInput}
+                        onChange={(e) => setCodeInput(e.target.value)}
+                    />
+                    <button type="submit">Registrar</button>
+                </form>
+                <div className="table-container">
+                    <table className="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha de Registro</th>
+                                <th>Código Usado</th>
+                                <th>Monto del Premio</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {codes.map((code, index) => (
+                                <tr key={index}>
+                                    <td>{code.fechaRegistro}</td>
+                                    <td>{code.codigo}</td>
+                                    <td>{code.premio}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
 }
-
 
 export default UserHome;

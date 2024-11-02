@@ -1,75 +1,44 @@
-.container {
-    height: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
 .table-container {
-    max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
-    overflow-y: auto;
-    width: 100%;
-    border: 1px solid #ddd;
+    max-height: 401px; /* Define la altura máxima del contenedor para activar el desplazamiento vertical */
+    overflow-y: auto; /* Habilita el desplazamiento vertical solo en el contenedor */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    border: 1px solid #ddd; /* Aplica un borde alrededor del contenedor */
+    box-sizing: border-box; /* Incluye el padding y borde dentro del ancho total */
 }
 
 .styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
+    width: 100%; /* Asegura que la tabla ocupe el 100% del contenedor */
+    border-collapse: collapse; /* Colapsa los bordes de las celdas para una apariencia uniforme */
+    font-size: 18px; /* Tamaño de fuente para mejorar la legibilidad */
+    text-align: center; /* Centra el texto en cada celda */
+    table-layout: fixed; /* Distribuye el ancho de las columnas de manera uniforme */
 }
 
-.styled-table th,
+.styled-table th {
+    background-color: #FFC107; /* Amarillo característico de la marca */
+    padding: 15px 15px; /* Espaciado interno de cada celda */
+    color: #212121; /* Color oscuro para el texto del encabezado */
+    border: 2px solid #ddd; /* Bordes alrededor de cada celda */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    text-overflow: ellipsis; /* Puntos suspensivos si el texto es demasiado largo */
+}
+
 .styled-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd; /* Bordes de las celdas */
+    background-color: #FFF8E1; /* Fondo amarillo claro */
+    color: #424242; /* Texto en un tono oscuro */
+    padding: 11px 15px; /* Espaciado interno de cada celda */
+    border: 1px solid #dddddd; /* Bordes alrededor de cada celda */
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    text-overflow: ellipsis; /* Puntos suspensivos si el texto es demasiado largo */
 }
 
 .styled-table thead th {
-    position: sticky;
-    top: 0;
-    background-color: #0ea3e9;
-    color: white;
-    padding: 12px 15px;
+    padding: 15px 15px;
+    background-color: #D32F2F; /* Rojo característico de la marca para el encabezado */
+    color: #FFFFFF; /* Texto blanco en el encabezado */
+    position: sticky; /* Encabezados fijos en la parte superior al hacer scroll */
     border: 1px solid #ddd;
-    z-index: 1; /* Asegura que el thead esté encima del contenido del tbody */
-}
-
-.styled-table tr:nth-child(even) {
-    background-color: #0ea3e9; /* Color de filas pares */
-}
-
-.styled-table tr:hover {
-    background-color: #ddd; /* Color de fondo al pasar el ratón */
-}
-
-/* Estilo para el contenedor de registros con desplazamiento */
-.scroll-container {
-    width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #1156e068;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.scroll-container h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.record {
-    padding: 10px;
-    border-bottom: 1px solid #1156e068;
-}
-
-.record p {
-    margin: 5px 0;
+    top: 0; /* Coloca el encabezado en la parte superior del contenedor */
+    z-index: 1; /* Asegura que el encabezado esté sobre el resto de las filas */
 }

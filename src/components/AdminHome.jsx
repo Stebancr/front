@@ -1,5 +1,6 @@
 import './styles/AdminHome.css';
 import { useEffect, useState } from 'react';
+import fondo from "./imagenes/fondo.jpg"
 
 function AdminHome({ user }) {
     const [winners, setWinners] = useState([]);
@@ -26,33 +27,36 @@ function AdminHome({ user }) {
     }, []);
 
     return (
-        <div className="container">
-            <h1>Lista de Ganadores</h1>
-            <div className="table-container">
-                <table className="styled-table">
-                    <thead>
-                        <tr>
-                            <th>Fecha de Registro</th>
-                            <th>Nombre del Ganador</th>
-                            <th>Cédula</th>
-                            <th>Teléfono</th>
-                            <th>Código Usado</th>
-                            <th>Monto del Premio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {winners.map((winner, index) => ( winner.codigos.map((codigo)=>
-                            <tr key={index}>
-                                <td>{codigo.fechaRegistro}</td>
-                                <td>{winner.usuario.username}</td>
-                                <td>{winner.usuario.cedula}</td>
-                                <td>{winner.usuario.celular}</td>
-                                <td>{codigo.codigo}</td>
-                                <td>{codigo.premio}</td>
+        <div className='container2'>
+            <img src={fondo} alt='fondo' className="fondo" />
+            <div className="container">
+                <h1>Lista de Ganadores</h1>
+                <div className="table-container">
+                    <table className="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha de Registro</th>
+                                <th>Nombre del Ganador</th>
+                                <th>Cédula</th>
+                                <th>Teléfono</th>
+                                <th>Código Usado</th>
+                                <th>Monto del Premio</th>
                             </tr>
-                        )))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {winners.map((winner, index) => ( winner.codigos.map((codigo)=>
+                                <tr key={index}>
+                                    <td>{codigo.fechaRegistro}</td>
+                                    <td>{winner.usuario.username}</td>
+                                    <td>{winner.usuario.cedula}</td>
+                                    <td>{winner.usuario.celular}</td>
+                                    <td>{codigo.codigo}</td>
+                                    <td>{codigo.premio}</td>
+                                </tr>
+                            )))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
