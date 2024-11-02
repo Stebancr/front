@@ -4,13 +4,13 @@ import fondo from "./imagenes/fondo.jpg"
 import logo from "./imagenes/logo.png"
 import promocion from "./imagenes/promocion.jpg"
 
-function UserHome() {
+function UserHome({user}) {
     const [codes, setCodes] = useState([]);
     const [codeInput, setCodeInput] = useState('');
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19');
+            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId='+user); // Endpoint para obtener los códigos registrados
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
@@ -26,15 +26,17 @@ function UserHome() {
         fetchCodes();
     }, []);
 
+
     const registerCode = async (event) => {
         event.preventDefault();
+        // Lógica para registrar el código, puedes ajustar según tu implementación
         try {
             const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/redeemCode', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ codigo: codeInput, usuarioId: "6720f4d58d30103289c4ed19" }),
+                body: JSON.stringify({ codigo: codeInput, usuarioId:user }),
             });
             if (response.ok) {
                 setCodeInput(''); // Limpiar el input después de registrar
